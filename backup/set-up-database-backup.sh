@@ -27,3 +27,5 @@ chmod +x /etc/cron.daily/sql-backup
 ## zcat /var/local/backup/data.sql.gz | head
 # Also see that this produces (a lot of) output
 ## zcat /var/local/backup/data.sql.gz | grep clarity
+
+
