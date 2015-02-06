@@ -1,3 +1,7 @@
+# Setup of backups on LIMS servers
+# This script handles database backup only, file backup to be coordinated with
+# restore@usit.uio.no
+
 # This is not meant to be an automatic install script, more of a 
 # record of how it was set up. Run these commands as root.
 
