@@ -8,8 +8,8 @@
 # We choose /var/local/backup as a backup destination
 cd /var/local
 mkdir backup
-chown postgres:postgres backup/
 touch backup/data.sql.gz
+chown -R postgres:postgres backup/
 chmod -R o-rx backup/
 
 # Now we create a cron job to dump the database at 23:00 every night
@@ -19,5 +19,11 @@ su -c '/usr/local/bin/sql-dump.sh' postgres
 EOF
 chmod +x /etc/cron.daily/sql-backup
 
-# Then install the sql-dump.sh script and make it executable
+# Then install the /usr/local/bin/sql-dump.sh script and make it executable
 
+# Then run the script '/etc/cron.daily/sql-backup', which should produce no 
+# output. Then run this command and see that it contains 
+# "PostgreSQL database cluster dump"
+## zcat /var/local/backup/data.sql.gz | head
+# Also see that this produces (a lot of) output
+## zcat /var/local/backup/data.sql.gz | grep clarity
